@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Galactic Studio | Wojtek Galik</title>
-
+    <script
+      src="https://kit.fontawesome.com/e85828e76a.js"
+      crossorigin="anonymous"></script>
     <style>
       /* Box sizing rules */
       *,
@@ -115,6 +117,10 @@ Version: 1.0
         font-family: Lato, sans-serif;
         align-items: center;
       }
+      body.dark-mode {
+        color: rgba(255, 255, 255, 0.9);
+        background-color: #333;
+      }
 
       .menu-btns {
         position: relative;
@@ -133,6 +139,20 @@ Version: 1.0
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+      }
+      #day,
+      #night {
+        border: none;
+        background-color: transparent;
+        line-height: 1;
+        box-shadow: none;
+        color: goldenrod;
+        font-size: 20px;
+        top: 10px;
+        left: 10px;
+      }
+      #day {
+        display: none;
       }
 
       #langBtnEN {
@@ -259,11 +279,10 @@ Version: 1.0
   <body>
     <div id="portrait"></div>
     <div class="menu-btns">
-      <button class="menu" id="day"></button>
-      <button class="menu" id="night"></button>
+      <button class="menu" id="day"><i class="fa-solid fa-sun"></i></button>
+      <button class="menu" id="night"><i class="fa-solid fa-moon"></i></button>
       <button class="menu" id="langBtnPL"></button>
       <button class="menu" id="langBtnEN"></button>
-      <!-- <button class="menu" id="enBtn">EN</button> -->
     </div>
     <header>
       <h1>Galactic Studio | Wojtek Galik</h1>
@@ -423,13 +442,13 @@ Version: 1.0
       const langBtnEN = document.querySelector("#langBtnEN");
       const main_pl = document.querySelector("#main_pl");
       const main_en = document.querySelector("#main_en");
-      console.log(10);
+      const logoWP = document.querySelectorAll('[src="wp_logo.png"]');
+      const logoGH = document.querySelector('[src="github-mark.svg"]');
 
       let isPL = true;
+      let isDark = false;
 
       langBtnPL.addEventListener("click", () => {
-        console.log(101);
-
         if (isPL) {
           main_pl.style.display = "none";
           main_en.style.display = "block";
@@ -439,14 +458,37 @@ Version: 1.0
         }
       });
       langBtnEN.addEventListener("click", () => {
-        console.log(102);
-
         if (!isPL) {
           main_en.style.display = "none";
           main_pl.style.display = "block";
           langBtnEN.style.display = "none";
           langBtnPL.style.display = "block";
           isPL = true;
+        }
+      });
+
+      day.addEventListener("click", function () {
+        if (isDark) {
+          day.style.display = "none";
+          night.style.display = "block";
+          document.body.classList.remove("dark-mode");
+          logoWP.forEach((el) => {
+            el.style.filter = "brightness()";
+          });
+          logoGH.style.filter = "brightness()";
+          isDark = false;
+        }
+      });
+      night.addEventListener("click", function () {
+        if (!isDark) {
+          night.style.display = "none";
+          day.style.display = "block";
+          document.body.classList.add("dark-mode");
+          logoWP.forEach((el) => {
+            el.style.filter = "brightness(5)";
+          });
+          logoGH.style.filter = "brightness(10)";
+          isDark = true;
         }
       });
     </script>
