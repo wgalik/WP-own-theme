@@ -20,3 +20,6 @@ function get_main_pl() {
 function get_main_en() {
   get_template_part('template-parts/content', 'main_en');
 }
+
+
+
