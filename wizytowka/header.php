@@ -23,6 +23,6 @@
   <div id='portrait'></div>
   <?php get_menu(); ?>
     <header>
-    <h1>Galactic Studio | Wojtek Galik</h1>
-    <p>junior frontend developer</p>
+    <h1><?php bloginfo('name'); ?><!-- Galactic Studio | Wojtek Galik --></h1> 
+    <p><?php bloginfo('description'); ?><!-- junior frontend developer --></p>
   </header>
