@@ -2,8 +2,6 @@
 <html lang="pl">
 <head>
   <?php wp_head(); ?>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php bloginfo('name'); ?></title>
   <style>
    #portrait { 
@@ -17,7 +15,7 @@
   }
 </style>
 </head>
-<!-- <body> -->
+ <body>
   
 
   <div id='portrait'></div>
