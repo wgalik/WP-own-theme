@@ -450,22 +450,22 @@ Version: 1.0
       let isPL = true;
       let isDark = false;
 
-      langBtnEN.addEventListener("click", () => {
-        if (isPL) {
-          main_pl.style.display = "none";
-          main_en.style.display = "block";
-          langBtnPL.style.display = "none";
-          langBtnEN.style.display = "block";
-          isPL = false;
-        }
-      });
       langBtnPL.addEventListener("click", () => {
         if (!isPL) {
-          main_en.style.display = "none";
           main_pl.style.display = "block";
+          main_en.style.display = "none";
+          langBtnPL.style.display = "none";
+          langBtnEN.style.display = "block";
+          isPL = true;
+        }
+      });
+      langBtnEN.addEventListener("click", () => {
+        if (isPL) {
+          main_en.style.display = "block";
+          main_pl.style.display = "none";
           langBtnEN.style.display = "none";
           langBtnPL.style.display = "block";
-          isPL = true;
+          isPL = false;
         }
       });
 
